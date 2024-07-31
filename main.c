@@ -16,7 +16,7 @@ void delay(int n)
     {
         for(int j = 0 ; j < 1000 ; j++)
         {
-            _asm__("nop"); //assembly instruction for waiting
+            asm("nop"); //assembly instruction for waiting
         }
     }
 }
@@ -24,7 +24,7 @@ void delay(int n)
 int main(void)
 {
     //enable gpioc clock
-    RCC->APB2ENR |= RCC_IOPCEN;
+    RCC_APB2ENR |= RCC_IOPCEN;
     GPIOC_CRH   &= 0xFF0FFFFF;
     GPIOC_CRH   |= 0x00200000;
     //configure pin PC13 as output
